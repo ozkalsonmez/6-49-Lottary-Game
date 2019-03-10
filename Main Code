@@ -1,0 +1,23 @@
+"""
+
+This program runs a lottary game and give the user
+6 numbers of 49 total automatically. User can play
+maximum 8 and minimum 1 column.
+
+"""
+statement1= "Insert the column number: "
+while (True):
+    column_number=int(input(statement1))
+    if column_number<1 or column_number>8:
+        statement1="You entered invalid number. Column number " \
+                   "should be min 1, max 8. Please try again: "
+    else:
+        break
+
+import random #call random module
+pile=list(range(1,50)) #
+
+coupon=[]
+for x in range(1,column_number+1):
+    coupon.append(sorted(random.sample(pile, k=6)))
+    print(" {}. column: ".format(x), coupon[x-1], "\n")
